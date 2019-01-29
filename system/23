@@ -1,0 +1,5 @@
+//Prendre le nom du nouvelle utilisateur (s->switch u->user) :
+~$ su identifiant
+//Entrer mot de passe
+//Pour sortir:
+~$ exit
