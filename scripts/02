@@ -1,0 +1,4 @@
+#!/bin/bash
+
+read -p "User to delete ?" nom_utilisateur
+userdel -r -f $nom_utilisateur

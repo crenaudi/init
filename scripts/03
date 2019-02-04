@@ -1,0 +1,25 @@
+#!/bin/bash
+
+nb_jpg="$(find . -iname "*.jpg" -print | grep -v "thumbnail" | wc -l)"
+nb_gif="$(find . -iname "*.gif" -print | grep -v "thumbnail" | wc -l)"
+nb_png="$(find . -iname "*.png" -print | grep -v "thumbnail" | wc -l)"
+nb_raw="$(find . -iname "*.raw" -print | grep -v "thumbnail" | wc -l)"
+nb_img="$(expr $nb_jpg + $nb_gif + $nb_png + $nb_raw)" 
+
+echo "Il y a $nb_img images dans le dossier, dont $nb_jpg JPG, $nb_raw RAW, $nb_gif GIF et $nb_png PNG"
+if [ $nb_jpg -ne 0 ]
+then
+	echo "$(mkdir -p JPG ; mv *.jpg JPG/ 2>&-) Vos fichiers jpg sont dans le reperctoire JPG."
+fi
+if [ $nb_raw -ne 0 ]
+then
+        echo "$(mkdir -p RAW ; mv *.raw RAW/ 2>&-) Vos fichiers raw sont dans le reperctoire RAW."
+fi
+if [ $nb_gif -ne 0 ]
+then
+        echo "$(mkdir -p GIF ; mv *.gif GIF/ 2>&-) Vos fichiers gif sont dans le reperctoire GIF."
+fi
+if [ $nb_png -ne 0 ]
+then
+        echo "$(mkdir -p PNG ; mv *.png PNG/ 2>&-) Vos fichiers png sont dans le reperctoire PNG."
+fi
